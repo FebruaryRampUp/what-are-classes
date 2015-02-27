@@ -12,7 +12,7 @@ class Person
 		puts @name + " says: \"" + words
 		if interlocutors
 			# puts "to " + interlocutors.get_name
-			puts 
+			puts "to someone."
 		end
 	end
 	def move(direction, speed)
@@ -48,11 +48,24 @@ class RampUpTeachingInstructor < Person
 		puts String.methods.sample
 	end
 	def show_method
-		base_classes = ["a string", ["an array"], 1, 1.0, {}]
-		#is there an easier way to do this
-		a_class = base_classes.sample.class
+		# base_classes = ["a string", ["an array"], 1, 1.0, {}, true]
+		# a_class = base_classes.sample.class
+		# puts "This is a(n) " + a_class.to_s + " method:"
+		# puts a_class.methods.sample
+
+		#or would it be more elegant to do as follows:
+		# base_classes = ["a string", ["an array"], 1, 1.0, {}].map{|item| item.class}
+		# a_class = base_classes.sample
+		# puts "This is a(n) " + a_class.to_s + " method:"
+		# puts a_class.methods.sample
+		#nah probably not
+		
+		#AHA
+		base_classes = [String, Array, Fixnum, Float, Hash, TrueClass, FalseClass, Symbol]
+		a_class = base_classes.sample
 		puts "This is a(n) " + a_class.to_s + " method:"
 		puts a_class.methods.sample
+
 	end
 	def know_ruby
 		# output a man page
@@ -68,12 +81,12 @@ class RampUpTeachingInstructor < Person
 end
 
 zoe = RampUpStudent.new("Zoe")
-zoe.code
+# zoe.code
 # zoe.learn_ruby
 
 caseee = RampUpTeachingInstructor.new
-caseee.check_code
-caseee.show_string_method
+# caseee.check_code
+# caseee.show_string_method
 caseee.show_method
-caseee.know_ruby
+# caseee.know_ruby
 
