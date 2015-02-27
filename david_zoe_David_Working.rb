@@ -15,3 +15,8 @@ class RampUpStudent < Person
 		puts "practicing #{skill}"
 	end
 end
+
+Person.new.speaketh
+
+RampUpStudent.new.speaketh
+
