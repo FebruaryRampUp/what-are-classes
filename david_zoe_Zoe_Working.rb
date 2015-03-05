@@ -9,10 +9,10 @@ class Person
 		return @name
 	end
 	def speak(words, *interlocutors)
-		puts @name + " says: \"" + words
+		puts @name + " says: \"" + words + "\""
 		if interlocutors
-			# puts "to " + interlocutors.get_name
-			puts "to someone."
+			puts "to " + interlocutors[0].get_name + "."
+			# puts "to %." where % is interlocutor.get_name for each interlocutor in interlocutors
 		end
 	end
 	def move(direction, speed)
@@ -48,24 +48,10 @@ class RampUpTeachingInstructor < Person
 		puts String.methods.sample
 	end
 	def show_method
-		# base_classes = ["a string", ["an array"], 1, 1.0, {}, true]
-		# a_class = base_classes.sample.class
-		# puts "This is a(n) " + a_class.to_s + " method:"
-		# puts a_class.methods.sample
-
-		#or would it be more elegant to do as follows:
-		# base_classes = ["a string", ["an array"], 1, 1.0, {}].map{|item| item.class}
-		# a_class = base_classes.sample
-		# puts "This is a(n) " + a_class.to_s + " method:"
-		# puts a_class.methods.sample
-		#nah probably not
-		
-		#AHA
 		base_classes = [String, Array, Fixnum, Float, Hash, TrueClass, FalseClass, Symbol]
 		a_class = base_classes.sample
 		puts "This is a(n) " + a_class.to_s + " method:"
 		puts a_class.methods.sample
-
 	end
 	def know_ruby
 		# output a man page
@@ -80,13 +66,15 @@ class RampUpTeachingInstructor < Person
 	end
 end
 
+jd = Person.new
+puts jd.get_name
+
 zoe = RampUpStudent.new("Zoe")
-# zoe.code
-# zoe.learn_ruby
+zoe.code
+zoe.learn_ruby
 
 caseee = RampUpTeachingInstructor.new
-# caseee.check_code
-# caseee.show_string_method
+caseee.check_code
+caseee.show_string_method
 caseee.show_method
-# caseee.know_ruby
-
+caseee.know_ruby
